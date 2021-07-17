@@ -1,28 +1,29 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
-const Section = () => {
+const Section = ({ title, description, leftBtnText, rightBtnText, backgroundImg }) => {
     return (
-        <Wrap>
+        <Wrap bgImage={backgroundImg}>
             <ItemText>
-                <h1>Model S</h1>
-                <p>Order Online for Touchless Delivery</p>
+                <h1>{ title }</h1>
+                <p>{ description }</p>
             </ItemText>
             <Buttons>
                 <ButtonGroup>
                     <LeftButton>
-                        Custom Order
+                        { leftBtnText }
                     </LeftButton>
-                    <RightButton>
-                        Existing Inventory
-                    </RightButton>
+                    {rightBtnText && 
+                        <RightButton>
+                            { rightBtnText }
+                         </RightButton>}             
                 </ButtonGroup>
                 <DownArrow src='/images/down-arrow.svg' />
             </Buttons>
         </Wrap>
 
-    );
-};
+    )
+}
 
 export default Section
 
@@ -32,7 +33,7 @@ const Wrap = styled.div`
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url('/images/model-s.jpg');
+    background-image: ${props => `url('/images/${props.bgImage}')`};
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -47,6 +48,9 @@ const ItemText = styled.div`
 const ButtonGroup = styled.div`
     display: flex;
     margin-bottom: 20px;
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `
 
 const LeftButton = styled.div`
@@ -59,7 +63,7 @@ const LeftButton = styled.div`
     justify-content: center;
     align-items: center;
     border-radius: 100px;
-    opacity: 0.85;
+    opacity: 0.95;
     text-transform: uppercase;
     cursor: pointer;
     margin: 8px;
