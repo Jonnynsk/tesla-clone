@@ -1,27 +1,26 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Section = ({ title, description, leftBtnText, rightBtnText, backgroundImg }) => {
+const Section = ({ title, description, leftBtnText, rightBtnText, backgroundImg, downArrow }) => {
     return (
         <Wrap bgImage={backgroundImg}>
             <ItemText>
-                <h1>{ title }</h1>
-                <p>{ description }</p>
+                <h1>{title}</h1>
+                <p>{description}</p>
             </ItemText>
             <Buttons>
                 <ButtonGroup>
                     <LeftButton>
-                        { leftBtnText }
+                        {leftBtnText}
                     </LeftButton>
-                    {rightBtnText && 
+                    {rightBtnText &&
                         <RightButton>
-                            { rightBtnText }
-                         </RightButton>}             
+                            {rightBtnText}
+                        </RightButton>}
                 </ButtonGroup>
-                <DownArrow src='/images/down-arrow.svg' />
+                <DownArrow src={downArrow} />
             </Buttons>
         </Wrap>
-
     )
 }
 
