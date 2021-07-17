@@ -8,14 +8,17 @@ const Section = () => {
                 <h1>Model S</h1>
                 <p>Order Online for Touchless Delivery</p>
             </ItemText>
-            <ButtonGroup>
-                <LeftButton>
-                    Custom Order
-                </LeftButton>
-                <RightButton>
-                    Existing Inventory
-                </RightButton>
-            </ButtonGroup>
+            <Buttons>
+                <ButtonGroup>
+                    <LeftButton>
+                        Custom Order
+                    </LeftButton>
+                    <RightButton>
+                        Existing Inventory
+                    </RightButton>
+                </ButtonGroup>
+                <DownArrow src='/images/down-arrow.svg' />
+            </Buttons>
         </Wrap>
 
     );
@@ -43,7 +46,7 @@ const ItemText = styled.div`
 
 const ButtonGroup = styled.div`
     display: flex;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 `
 
 const LeftButton = styled.div`
@@ -59,10 +62,18 @@ const LeftButton = styled.div`
     opacity: 0.85;
     text-transform: uppercase;
     cursor: pointer;
-    
+    margin: 8px;
 `
 
 const RightButton = styled(LeftButton)`
     background-color rgba(255, 255, 255, 0.65);
     color: rgb(57, 60, 65);
 `
+
+const DownArrow = styled.img`
+    height: 40px;
+    overflow-x: hidden;
+    animation: animateDown infinite 1.5s;
+`
+
+const Buttons = styled.div``
