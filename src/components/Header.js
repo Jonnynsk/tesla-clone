@@ -1,5 +1,6 @@
 import React from 'react'
-import styled from 'styled-components';
+import styled from 'styled-components'
+import CloseIcon from '@material-ui/icons/Close'
 
 const Header = () => {
     return (
@@ -20,6 +21,24 @@ const Header = () => {
                 <a href='#'>Account</a>
                 <a href='#'>Menu</a>
             </RightMenu>
+            <MenuNav>
+                <CloseWrapper>
+                    <CustomClose />
+                </CloseWrapper>
+                <li><a href='#'>Existing Inventory</a></li>
+                <li><a href='#'>Used Inventory</a></li>
+                <li><a href='#'>Trade-In</a></li>
+                <li><a href='#'>Test Drive</a></li>
+                <li><a href='#'>Cybertruck</a></li>
+                <li><a href='#'>Roadster</a></li>
+                <li><a href='#'>Semiy</a></li>
+                <li><a href='#'>Charging</a></li>
+                <li><a href='#'>Powerwall</a></li>
+                <li><a href='#'>Commercial Energy</a></li>
+                <li><a href='#'>Utilities</a></li>
+                <li><a href='#'>Find Us</a></li>
+                <li><a href='#'>Support</a></li>
+            </MenuNav>
         </Container>
     )
 }
@@ -36,6 +55,7 @@ const Container = styled.div`
     top: 0;
     left: 0;
     right: 0;
+    z-index: 1;
 `
 
 const Menu = styled.div`
@@ -60,4 +80,36 @@ const RightMenu = styled.div`
         font-weight: 600;
         margin-right: 10px;
     }
+`
+
+const MenuNav = styled.div`
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: white;
+    width: 300px;
+    z-index: 16;
+    list-style: none;
+    padding: 20px;
+    dosplay: flex;
+    flex-direction: column;
+    text-align: start;
+
+    li {
+        padding: 15px 0;
+        font-weight: 600;
+        color: rgb(57, 60, 65);
+        
+    
+    }
+`
+
+const CustomClose = styled(CloseIcon)`
+    cursor: pointer;
+`
+
+const CloseWrapper = styled.div`
+    display: flex;
+    justify-content: flex-end;
 `
