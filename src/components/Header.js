@@ -1,8 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 import CloseIcon from '@material-ui/icons/Close'
 
 const Header = () => {
+
+    const [menuStatus, setMenuStatus] = useState(false)
+
     return (
         <Container>
             <a>
@@ -19,11 +22,11 @@ const Header = () => {
             <RightMenu>
                 <a href='#'>Shop</a>
                 <a href='#'>Account</a>
-                <a href='#'>Menu</a>
+                <a href='#' onClick={() => setMenuStatus(true)}>Menu</a>
             </RightMenu>
-            <MenuNav>
+            <MenuNav show={menuStatus}>
                 <CloseWrapper>
-                    <CustomClose />
+                    <CustomClose onClick={() => setMenuStatus(false)}/>
                 </CloseWrapper>
                 <li><a href='#'>Existing Inventory</a></li>
                 <li><a href='#'>Used Inventory</a></li>
@@ -95,6 +98,8 @@ const MenuNav = styled.div`
     dosplay: flex;
     flex-direction: column;
     text-align: start;
+    transform: ${props => props.show ? 'translateX(0)' : 'translateX(100%)'};
+    transition: transform 0.4s ease-in;
 
     li {
         padding: 15px 0;
